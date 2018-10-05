@@ -1,5 +1,7 @@
 package nl.han.oose.playlist;
 
+import nl.han.oose.Tracks;
+
 public class Playlist {
 
     private int id;
