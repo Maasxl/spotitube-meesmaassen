@@ -1,10 +1,17 @@
 package nl.han.oose;
 
-/**
- * Hello world!
- */
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+
+@Path("")
 public class App {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloWorld() {
+        return "Hello World!";
     }
 }
