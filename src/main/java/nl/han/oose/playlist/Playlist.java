@@ -1,15 +1,17 @@
 package nl.han.oose.playlist;
 
-import nl.han.oose.Tracks;
+import nl.han.oose.track.Track;
+
+import java.util.List;
 
 public class Playlist {
 
     private int id;
     private String name;
     private boolean owner;
-    private Tracks tracks;
+    private List<Track> tracks;
 
-    public Playlist(int id, String name, boolean owner, Tracks tracks) {
+    public Playlist(int id, String name, boolean owner, List<Track> tracks) {
         this.id = id;
         this.name = name;
         this.owner = owner;
@@ -44,11 +46,11 @@ public class Playlist {
         this.owner = owner;
     }
 
-    public Tracks getTracks() {
+    public List<Track> getTracks() {
         return tracks;
     }
 
-    public void setTracks(Tracks tracks) {
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 }
