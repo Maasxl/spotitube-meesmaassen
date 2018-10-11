@@ -16,7 +16,7 @@ public class ConnectionFactory {
 
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/spotitube", "user", "password");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/spotitube", "mees", "meespass");
         } catch (SQLException e) {
             e.printStackTrace();
         }
