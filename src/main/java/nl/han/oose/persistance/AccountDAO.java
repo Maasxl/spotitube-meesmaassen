@@ -18,7 +18,7 @@ public class AccountDAO {
 
         try (
                 Connection connection = connectionFactory.getConnection();
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM ACCOUNT");
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM Account;");
         ) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -36,7 +36,7 @@ public class AccountDAO {
         try (
                 Connection connection = connectionFactory.getConnection();
                 PreparedStatement statement = connection.prepareStatement(
-                        "INSERT INTO ACCOUNT (user,password) VALUES (?,?)");
+                        "INSERT INTO Account (user,password) VALUES (?,?);");
         ) {
             statement.setString(1, account.getUser());
             statement.setString(2, account.getPassword());

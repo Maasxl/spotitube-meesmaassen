@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import javax.security.auth.login.LoginException;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +24,7 @@ public class PlaylistscontrollerTest {
 
 
     @Test
-    public void testStatusOkOnSuccesfulPlaylistSearch() throws LoginException {
+    public void testStatusOkOnSuccesfulPlaylistSearch() throws NotFoundException {
         String token = "";
         Mockito.when(playlistsService.playlistSearch(Mockito.any())).thenReturn(playlists);
 

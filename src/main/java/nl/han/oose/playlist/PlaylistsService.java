@@ -3,7 +3,7 @@ package nl.han.oose.playlist;
 import nl.han.oose.AccountToken;
 import nl.han.oose.track.Track;
 
-import javax.security.auth.login.LoginException;
+import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,11 +23,11 @@ public class PlaylistsService {
         myPlaylist = new Playlists(playlistArray, 1346);
     }
 
-    public Playlists playlistSearch(String token) throws LoginException {
+    public Playlists playlistSearch(String token) throws NotFoundException {
         if (token.equals(accountToken.getToken())) {
             return myPlaylist;
         } else {
-            throw new LoginException("Invalid token credentials");
+            throw new NotFoundException("No playlists found");
         }
     }
 }
