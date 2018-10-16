@@ -21,4 +21,15 @@ public class Playlistscontroller {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+
+    @GET
+    @Path("/{id}/tracks")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getTracksFromPlaylist(@PathParam("id") int id, @QueryParam("token") String accountToken) {
+        try {
+            return Response.ok().entity(playlistsService.getTracksFromPlaylist(id, accountToken)).build();
+        } catch (NotFoundException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
 }

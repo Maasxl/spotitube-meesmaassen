@@ -1,7 +1,5 @@
 package nl.han.oose.track;
 
-import java.util.Date;
-
 public class Track {
 
     private long id;
@@ -10,7 +8,7 @@ public class Track {
     private long duration;
     private String album;
     private long playcount;
-    private Date publicationDate;
+    private String publicationDate;
     private String description;
     private boolean offlineAvailable;
 
@@ -18,7 +16,7 @@ public class Track {
 
     }
 
-    public Track(long id, String title, String performer, long duration, String album, long playcount, Date publicationDate, String description, boolean offlineAvailable) {
+    public Track(long id, String title, String performer, long duration, String album, long playcount, String publicationDate, String description, boolean offlineAvailable) {
         this.id = id;
         this.title = title;
         this.performer = performer;
@@ -78,11 +76,11 @@ public class Track {
         this.playcount = playcount;
     }
 
-    public Date getPublicationDate() {
+    public String getPublicationDate() {
         return publicationDate;
     }
 
-    public void setPublicationDate(Date publicationDate) {
+    public void setPublicationDate(String publicationDate) {
         this.publicationDate = publicationDate;
     }
 

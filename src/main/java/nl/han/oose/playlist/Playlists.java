@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Playlists {
 
-    private List<Playlist> playlistArray;
+    private List<Playlist> playlists;
     private int length;
 
     public Playlists(List<Playlist> playlist, int length) {
-        this.playlistArray = playlist;
+        this.playlists = playlist;
         this.length = length;
     }
 
@@ -16,12 +16,12 @@ public class Playlists {
 
     }
 
-    public List<Playlist> getPlaylistArray() {
-        return playlistArray;
+    public List<Playlist> getPlaylists() {
+        return playlists;
     }
 
-    public void setPlaylistArray(List<Playlist> playlistArray) {
-        this.playlistArray = playlistArray;
+    public void setPlaylists(List<Playlist> playlistArray) {
+        this.playlists = playlistArray;
     }
 
     public int getLength() {
