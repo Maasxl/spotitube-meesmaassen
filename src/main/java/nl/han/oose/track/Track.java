@@ -2,12 +2,12 @@ package nl.han.oose.track;
 
 public class Track {
 
-    private long id;
+    private int id;
     private String title;
     private String performer;
-    private long duration;
+    private int duration;
     private String album;
-    private long playcount;
+    private int playcount;
     private String publicationDate;
     private String description;
     private boolean offlineAvailable;
@@ -16,7 +16,7 @@ public class Track {
 
     }
 
-    public Track(long id, String title, String performer, long duration, String album, long playcount, String publicationDate, String description, boolean offlineAvailable) {
+    public Track(int id, String title, String performer, int duration, String album, int playcount, String publicationDate, String description, boolean offlineAvailable) {
         this.id = id;
         this.title = title;
         this.performer = performer;
@@ -28,11 +28,11 @@ public class Track {
         this.offlineAvailable = offlineAvailable;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -52,11 +52,11 @@ public class Track {
         this.performer = performer;
     }
 
-    public long getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(long duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
@@ -68,11 +68,11 @@ public class Track {
         this.album = album;
     }
 
-    public long getPlaycount() {
+    public int getPlaycount() {
         return playcount;
     }
 
-    public void setPlaycount(long playcount) {
+    public void setPlaycount(int playcount) {
         this.playcount = playcount;
     }
 

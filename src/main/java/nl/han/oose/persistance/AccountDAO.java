@@ -2,6 +2,7 @@ package nl.han.oose.persistance;
 
 import nl.han.oose.Account;
 
+import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,8 @@ import java.util.List;
 
 public class AccountDAO {
 
-    private ConnectionFactory connectionFactory = new ConnectionFactory();
+    @Inject
+    private ConnectionFactory connectionFactory;
 
     public List<Account> getAllAccounts() {
         List<Account> accounts = new ArrayList<>();
