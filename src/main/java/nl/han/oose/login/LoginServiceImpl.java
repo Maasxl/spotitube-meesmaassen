@@ -18,13 +18,12 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public AccountToken login(Account user) throws LoginException {
-        for (Account account : accountDAO.getAllAccounts()) {
-            if (user.getUser().equals(account.getUser()) && user.getPassword().equals(account.getPassword())) {
+        Account account = accountDAO.getAccount(user.getUser());
+        if (account != null && user.getPassword().equals(account.getPassword())) {
+            accountTokenDAO.deleteExpiredTokens();
                 return accountTokenDAO.createNewTokenForAccount(user.getUser());
             } else {
                 throw new LoginException("Invalid login credentials");
             }
         }
-        return null;
-    }
 }

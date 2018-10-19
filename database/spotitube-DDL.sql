@@ -2,8 +2,8 @@
 CREATE TABLE account (user VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL,
   PRIMARY KEY (user));
 
-CREATE TABLE accounttoken (user VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, expiry_date DATETIME NOT NULL,
+CREATE TABLE accountToken (user VARCHAR(255) NOT NULL, token VARCHAR(255) NOT NULL, expiry_date DATETIME NOT NULL,
   PRIMARY KEY (token),
-  CONSTRAINT fk_accounttoken_user FOREIGN KEY (user) REFERENCES account (user) ON UPDATE CASCADE ON DELETE CASCADE);
+  CONSTRAINT fk_accountToken_user FOREIGN KEY (user) REFERENCES account (user) ON UPDATE CASCADE ON DELETE CASCADE);
 
 INSERT INTO account VALUES ('mees' ,'meespass');

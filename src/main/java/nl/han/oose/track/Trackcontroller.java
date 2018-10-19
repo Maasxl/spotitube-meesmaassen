@@ -13,9 +13,9 @@ public class Trackcontroller {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response trackList(@QueryParam("token") String accountToken, @QueryParam("forPlaylist") String forPlaylist) {
+    public Response trackList(@QueryParam("token") String token, @QueryParam("forPlaylist") String forPlaylist) {
         try {
-            return Response.ok().entity(trackService.getTrackList(accountToken, forPlaylist)).build();
+            return Response.ok().entity(trackService.getTrackList(token, forPlaylist)).build();
         } catch (BadRequestException e) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }

@@ -56,4 +56,15 @@ public class AccountTokenDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void deleteExpiredTokens() {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement("DELETE FROM accounttoken WHERE expiry_date < NOW()")
+        ) {
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -45,6 +45,7 @@ public class PlaylistDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return playlists;
     }
 
     private int getPlaylistLength(int id) {

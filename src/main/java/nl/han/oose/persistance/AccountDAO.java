@@ -49,4 +49,26 @@ public class AccountDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public Account getAccount(String user) {
+        Account account = null;
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement(
+                        "SELECT * FROM account WHERE user = ?");
+        ) {
+            statement.setString(1, user);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String username = resultSet.getString("user");
+                String password = resultSet.getString("password");
+                account = new Account(username, password);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return account;
+    }
 }
