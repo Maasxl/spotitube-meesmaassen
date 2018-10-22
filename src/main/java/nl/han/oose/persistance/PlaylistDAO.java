@@ -80,7 +80,7 @@ public class PlaylistDAO {
     }
 
     private Tracks getVideosFromPlaylist(int playlistId) {
-        Tracks tracks = new Tracks();
+        Tracks tracks;
 
         try (
                 Connection connection = connectionFactory.getConnection();
@@ -106,7 +106,7 @@ public class PlaylistDAO {
     }
 
     private Tracks getSongsFromPlaylist(int playlistId) {
-        Tracks tracks = new Tracks();
+        Tracks tracks;
 
         try (
                 Connection connection = connectionFactory.getConnection();

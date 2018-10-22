@@ -28,7 +28,7 @@ public class TrackDAO {
     }
 
     private Tracks getSongsForPlaylist(int forPlaylist) {
-        Tracks tracks = new Tracks();
+        Tracks tracks;
 
         try (
                 Connection connection = connectionFactory.getConnection();
@@ -52,7 +52,7 @@ public class TrackDAO {
     }
 
     private Tracks getVideosForPlaylist(int forPlaylist) {
-        Tracks tracks = new Tracks();
+        Tracks tracks;
 
         try (
                 Connection connection = connectionFactory.getConnection();
