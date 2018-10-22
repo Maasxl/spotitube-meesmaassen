@@ -1,9 +1,10 @@
-package nl.han.oose.playlist;
+package nl.han.oose.service.playlist;
 
-import nl.han.oose.AccountToken;
-import nl.han.oose.persistance.AccountTokenDAO;
-import nl.han.oose.persistance.PlaylistDAO;
-import nl.han.oose.track.Tracks;
+import nl.han.oose.entity.login.AccountToken;
+import nl.han.oose.entity.playlist.Playlists;
+import nl.han.oose.entity.track.Tracks;
+import nl.han.oose.persistance.login.AccountTokenDAO;
+import nl.han.oose.persistance.playlist.PlaylistDAO;
 
 import javax.inject.Inject;
 import javax.ws.rs.NotFoundException;

@@ -1,6 +1,6 @@
-package nl.han.oose.playlist;
+package nl.han.oose.entity.playlist;
 
-import nl.han.oose.track.Track;
+import nl.han.oose.entity.track.Track;
 
 import java.util.List;
 

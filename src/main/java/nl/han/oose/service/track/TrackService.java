@@ -1,8 +1,9 @@
-package nl.han.oose.track;
+package nl.han.oose.service.track;
 
-import nl.han.oose.AccountToken;
-import nl.han.oose.persistance.AccountTokenDAO;
-import nl.han.oose.persistance.TrackDAO;
+import nl.han.oose.entity.login.AccountToken;
+import nl.han.oose.entity.track.Tracks;
+import nl.han.oose.persistance.login.AccountTokenDAO;
+import nl.han.oose.persistance.track.TrackDAO;
 
 import javax.inject.Inject;
 import javax.ws.rs.BadRequestException;

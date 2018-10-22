@@ -1,5 +1,6 @@
 package nl.han.oose.playlist;
 
+import nl.han.oose.service.playlist.PlaylistsService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;

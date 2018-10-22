@@ -1,5 +1,8 @@
 package nl.han.oose.playlist;
 
+import nl.han.oose.controller.playlist.PlaylistsController;
+import nl.han.oose.entity.playlist.Playlists;
+import nl.han.oose.service.playlist.PlaylistsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

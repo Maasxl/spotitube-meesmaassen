@@ -1,4 +1,6 @@
-package nl.han.oose.track;
+package nl.han.oose.controller.track;
+
+import nl.han.oose.service.track.TrackService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

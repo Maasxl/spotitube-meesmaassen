@@ -1,9 +1,9 @@
-package nl.han.oose.login;
+package nl.han.oose.service.login;
 
-import nl.han.oose.Account;
-import nl.han.oose.AccountToken;
-import nl.han.oose.persistance.AccountDAO;
-import nl.han.oose.persistance.AccountTokenDAO;
+import nl.han.oose.entity.login.Account;
+import nl.han.oose.entity.login.AccountToken;
+import nl.han.oose.persistance.login.AccountDAO;
+import nl.han.oose.persistance.login.AccountTokenDAO;
 
 import javax.inject.Inject;
 import javax.security.auth.login.LoginException;

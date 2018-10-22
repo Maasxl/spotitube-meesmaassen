@@ -1,7 +1,9 @@
 package nl.han.oose.login;
 
-import nl.han.oose.Account;
-import nl.han.oose.AccountToken;
+import nl.han.oose.controller.login.Logincontroller;
+import nl.han.oose.entity.login.Account;
+import nl.han.oose.entity.login.AccountToken;
+import nl.han.oose.service.login.LoginService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

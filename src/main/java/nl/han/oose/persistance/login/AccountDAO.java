@@ -1,6 +1,7 @@
-package nl.han.oose.persistance;
+package nl.han.oose.persistance.login;
 
-import nl.han.oose.Account;
+import nl.han.oose.entity.login.Account;
+import nl.han.oose.persistance.ConnectionFactory;
 
 import javax.inject.Inject;
 import java.sql.Connection;

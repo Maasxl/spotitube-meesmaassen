@@ -1,4 +1,4 @@
-package nl.han.oose.track;
+package nl.han.oose.entity.track;
 
 import java.util.ArrayList;
 

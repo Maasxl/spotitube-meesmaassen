@@ -1,6 +1,8 @@
-package nl.han.oose.persistance;
+package nl.han.oose.persistance.track;
 
-import nl.han.oose.track.Tracks;
+import nl.han.oose.entity.track.Tracks;
+import nl.han.oose.persistance.ConnectionFactory;
+import nl.han.oose.persistance.ResultSets;
 
 import javax.inject.Inject;
 import java.sql.Connection;

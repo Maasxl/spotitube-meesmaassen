@@ -1,7 +1,9 @@
 package nl.han.oose.login;
 
-import nl.han.oose.Account;
-import nl.han.oose.AccountToken;
+import nl.han.oose.entity.login.Account;
+import nl.han.oose.entity.login.AccountToken;
+import nl.han.oose.service.login.LoginService;
+import nl.han.oose.service.login.LoginServiceImpl;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

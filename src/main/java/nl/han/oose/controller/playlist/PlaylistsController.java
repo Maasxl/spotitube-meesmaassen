@@ -1,5 +1,7 @@
-package nl.han.oose.playlist;
+package nl.han.oose.controller.playlist;
 
+
+import nl.han.oose.service.playlist.PlaylistsService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

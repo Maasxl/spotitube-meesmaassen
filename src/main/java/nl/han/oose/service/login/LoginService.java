@@ -1,7 +1,7 @@
-package nl.han.oose.login;
+package nl.han.oose.service.login;
 
-import nl.han.oose.Account;
-import nl.han.oose.AccountToken;
+import nl.han.oose.entity.login.Account;
+import nl.han.oose.entity.login.AccountToken;
 
 import javax.security.auth.login.LoginException;
 

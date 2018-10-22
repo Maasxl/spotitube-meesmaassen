@@ -1,8 +1,8 @@
 package nl.han.oose.persistance;
 
-import nl.han.oose.track.Song;
-import nl.han.oose.track.Tracks;
-import nl.han.oose.track.Video;
+import nl.han.oose.entity.track.Song;
+import nl.han.oose.entity.track.Tracks;
+import nl.han.oose.entity.track.Video;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
