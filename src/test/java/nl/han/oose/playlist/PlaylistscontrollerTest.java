@@ -20,7 +20,7 @@ public class PlaylistscontrollerTest {
     private Playlists playlists;
 
     @InjectMocks
-    private Playlistscontroller sut;
+    private PlaylistsController sut;
 
 
     @Test

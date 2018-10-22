@@ -1,26 +1,21 @@
 package nl.han.oose.playlist;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Playlists {
 
-    private List<Playlist> playlists;
+    private ArrayList<Playlist> playlists = new ArrayList<>();
     private int length;
-
-    public Playlists(List<Playlist> playlist, int length) {
-        this.playlists = playlist;
-        this.length = length;
-    }
 
     public Playlists() {
 
     }
 
-    public List<Playlist> getPlaylists() {
+    public ArrayList<Playlist> getPlaylists() {
         return playlists;
     }
 
-    public void setPlaylists(List<Playlist> playlistArray) {
+    public void setPlaylists(ArrayList<Playlist> playlistArray) {
         this.playlists = playlistArray;
     }
 

@@ -13,7 +13,7 @@ public class Trackcontroller {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response trackList(@QueryParam("token") String token, @QueryParam("forPlaylist") String forPlaylist) {
+    public Response trackList(@QueryParam("token") String token, @QueryParam("forPlaylist") int forPlaylist) {
         try {
             return Response.ok().entity(trackService.getTrackList(token, forPlaylist)).build();
         } catch (BadRequestException e) {

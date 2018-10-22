@@ -1,20 +1,23 @@
 package nl.han.oose.track;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Tracks {
 
-    private List<Track> tracks;
+    private ArrayList<Track> tracks = new ArrayList<>();
 
-    public Tracks(List<Track> tracks) {
+    public Tracks() {
+    }
+
+    public Tracks(ArrayList<Track> tracks) {
         this.tracks = tracks;
     }
 
-    public List<Track> getTracks() {
+    public ArrayList<Track> getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(ArrayList<Track> tracks) {
         this.tracks = tracks;
     }
 }
