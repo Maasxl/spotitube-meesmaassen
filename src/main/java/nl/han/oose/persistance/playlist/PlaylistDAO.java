@@ -3,6 +3,7 @@ package nl.han.oose.persistance.playlist;
 import nl.han.oose.entity.login.AccountToken;
 import nl.han.oose.entity.playlist.Playlist;
 import nl.han.oose.entity.playlist.Playlists;
+import nl.han.oose.entity.track.Track;
 import nl.han.oose.entity.track.Tracks;
 import nl.han.oose.persistance.ConnectionFactory;
 import nl.han.oose.persistance.ResultSets;
@@ -128,5 +129,70 @@ public class PlaylistDAO {
             throw new RuntimeException(e);
         }
         return tracks;
+    }
+
+    public void deletePlaylist(int playlistId) {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement("DELETE FROM playlist WHERE id = ?;");
+        ) {
+            statement.setInt(1, playlistId);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addPlaylist(AccountToken accountToken, Playlist playlist) {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO playlist (user, name) VALUES (?,?);");
+        ) {
+            statement.setString(1, accountToken.getUser());
+            statement.setString(2, playlist.getName());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void editPlaylist(int playlistId, Playlist playlist) {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement("UPDATE playlist SET name = ? WHERE id = ?;");
+        ) {
+            statement.setString(1, playlist.getName());
+            statement.setInt(2, playlistId);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void deleteTrackFromPlaylist(int playlistId, int trackId) {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement("DELETE FROM trackInPlaylist WHERE playlist_id = ? AND track_id = ?;");
+        ) {
+            statement.setInt(1, playlistId);
+            statement.setInt(2, trackId);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addTrackToPlaylist(int playlistId, Track track) {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO trackInPlaylist (playlist_id, track_id, offline_available) VALUES (?,?,?);");
+        ) {
+            statement.setInt(1, playlistId);
+            statement.setInt(2, track.getId());
+            statement.setBoolean(3, track.isOfflineAvailable());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -35,10 +35,10 @@ public class TrackDAO {
         try (
                 Connection connection = connectionFactory.getConnection();
                 PreparedStatement statement = connection.prepareStatement(
-                        "SELECT song_view.*, trackInPlaylist.offline_available " +
-                                "FROM song_view LEFT JOIN trackInPlaylist " +
-                                "ON trackInPlaylist.track_id = song_view.id " +
-                                "AND trackInPlaylist.playlist_id = ?" +
+                        "SELECT song_view.*, trackInPlaylist.offline_available\n" +
+                                "FROM song_view LEFT JOIN trackInPlaylist\n" +
+                                "ON trackInPlaylist.track_id = song_view.id\n" +
+                                "AND trackInPlaylist.playlist_id = ?\n" +
                                 "WHERE song_view.id NOT IN(SELECT track_id FROM trackInPlaylist WHERE playlist_id = ?);");
         ) {
             statement.setInt(1, forPlaylist);
@@ -59,10 +59,10 @@ public class TrackDAO {
         try (
                 Connection connection = connectionFactory.getConnection();
                 PreparedStatement statement = connection.prepareStatement(
-                        "SELECT video_view.*, trackInPlaylist.offline_available " +
-                                "FROM video_view LEFT JOIN trackInPlaylist " +
-                                "ON trackInPlaylist.track_id = video_view.id " +
-                                "AND trackInPlaylist.playlist_id = ?" +
+                        "SELECT video_view.*, trackInPlaylist.offline_available\n" +
+                                "FROM video_view LEFT JOIN trackInPlaylist\n" +
+                                "ON trackInPlaylist.track_id = video_view.id\n" +
+                                "AND trackInPlaylist.playlist_id = ?\n" +
                                 "WHERE video_view.id NOT IN(SELECT track_id FROM trackInPlaylist WHERE playlist_id = ?);");
         ) {
             statement.setInt(1, forPlaylist);
