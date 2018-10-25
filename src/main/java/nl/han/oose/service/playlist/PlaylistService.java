@@ -12,7 +12,7 @@ import nl.han.oose.persistance.track.TrackDAO;
 import javax.inject.Inject;
 import javax.ws.rs.NotFoundException;
 
-public class PlaylistsService {
+public class PlaylistService {
 
     @Inject
     private AccountTokenDAO accountTokenDAO;

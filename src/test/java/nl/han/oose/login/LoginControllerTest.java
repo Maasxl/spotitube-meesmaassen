@@ -1,6 +1,6 @@
 package nl.han.oose.login;
 
-import nl.han.oose.controller.login.Logincontroller;
+import nl.han.oose.controller.login.LoginController;
 import nl.han.oose.entity.login.Account;
 import nl.han.oose.entity.login.AccountToken;
 import nl.han.oose.service.login.LoginService;
@@ -23,7 +23,7 @@ public class LoginControllerTest {
     private LoginService loginService;
 
     @InjectMocks
-    private Logincontroller sut;
+    private LoginController sut;
 
 
     @Test
