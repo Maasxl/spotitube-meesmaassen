@@ -23,10 +23,9 @@ public class LoginController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(Account user) {
         try {
-            return Response.ok().entity(loginService.login(user)).build();
+            return Response.status(Response.Status.CREATED).entity(loginService.login(user)).build();
         } catch (LoginException e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }
-
 }

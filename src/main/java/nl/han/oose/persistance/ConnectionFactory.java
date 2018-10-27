@@ -26,12 +26,10 @@ public class ConnectionFactory {
             return DriverManager.getConnection(
                     properties.getProperty("db.url"),
                     properties.getProperty("db.user"),
-                    properties.getProperty("db.password")
-            );
+                    properties.getProperty("db.password"));
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     private Properties readProperties() {
