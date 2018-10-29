@@ -1,6 +1,5 @@
-package nl.han.oose.playlist;
+package nl.han.oose.controller.playlist;
 
-import nl.han.oose.controller.playlist.PlaylistController;
 import nl.han.oose.entity.playlist.Playlists;
 import nl.han.oose.service.playlist.PlaylistService;
 import org.junit.Test;
@@ -10,7 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import javax.ws.rs.NotFoundException;
+import javax.naming.AuthenticationException;
 import javax.ws.rs.core.Response;
 
 import static org.junit.Assert.assertEquals;
@@ -20,21 +19,21 @@ public class PlaylistControllerTest {
 
     @Mock
     private PlaylistService playlistService;
-    private Playlists playlists;
 
     @InjectMocks
     private PlaylistController sut;
 
 
     @Test
-    public void testStatusOkOnSuccesfulPlaylistSearch() throws NotFoundException {
-        String token = "";
+    public void testStatusOkOnSuccessfulPlaylistSearch() throws AuthenticationException {
+        Playlists playlists = new Playlists();
+        String token = "1234-1234-1234";
         Mockito.when(playlistService.playlistSearch(Mockito.any())).thenReturn(playlists);
 
-        Response searchResponce = sut.playlistSearch(token);
+        Response searchResponse = sut.playlistSearch(token);
 
-        assertEquals(Response.Status.OK.getStatusCode(), searchResponce.getStatus());
-        assertEquals(playlists, searchResponce.getEntity());
+        assertEquals(Response.Status.OK.getStatusCode(), searchResponse.getStatus());
+        assertEquals(playlists, searchResponse.getEntity());
     }
 
 }

@@ -6,7 +6,7 @@ import nl.han.oose.persistance.login.AccountTokenDAO;
 import nl.han.oose.persistance.track.TrackDAO;
 
 import javax.inject.Inject;
-import javax.ws.rs.BadRequestException;
+import javax.naming.AuthenticationException;
 
 public class TrackService {
 
@@ -17,12 +17,12 @@ public class TrackService {
     private TrackDAO trackDAO;
 
 
-    public Tracks getTrackList(String token, int forPlaylist) throws BadRequestException {
+    public Tracks getTrackList(String token, int forPlaylist) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             return trackDAO.getTrackList(forPlaylist);
         } else {
-            throw new BadRequestException("The playlist is not found");
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 }

@@ -1,6 +1,5 @@
-package nl.han.oose.login;
+package nl.han.oose.controller.login;
 
-import nl.han.oose.controller.login.LoginController;
 import nl.han.oose.entity.login.Account;
 import nl.han.oose.entity.login.AccountToken;
 import nl.han.oose.service.login.LoginService;
@@ -27,13 +26,22 @@ public class LoginControllerTest {
 
 
     @Test
-    public void testStatusOkOnSuccesfulLogin() throws LoginException {
+    public void testStatusOkOnSuccessfulLogin() throws LoginException {
         AccountToken accountToken = new AccountToken("", "");
         Mockito.when(loginService.login(Mockito.any())).thenReturn(accountToken);
         Account account = new Account("", "");
-        Response loginResponce = sut.login(account);
+        Response loginResponse = sut.login(account);
 
-        assertEquals(Response.Status.OK.getStatusCode(), loginResponce.getStatus());
-        assertEquals(accountToken, loginResponce.getEntity());
+        assertEquals(Response.Status.CREATED.getStatusCode(), loginResponse.getStatus());
+        assertEquals(accountToken, loginResponse.getEntity());
+    }
+
+    @Test
+    public void testStatusUnauthorizedOnUnsuccessfulLogin() throws LoginException {
+        Account account = new Account("", "");
+        Mockito.when(loginService.login(Mockito.any())).thenThrow(new LoginException("Invalid login credentials"));
+        Response loginResponse = sut.login(account);
+
+        assertEquals(Response.Status.UNAUTHORIZED.getStatusCode(), loginResponse.getStatus());
     }
 }

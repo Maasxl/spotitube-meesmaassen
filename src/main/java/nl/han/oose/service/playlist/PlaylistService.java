@@ -10,7 +10,7 @@ import nl.han.oose.persistance.playlist.PlaylistDAO;
 import nl.han.oose.persistance.track.TrackDAO;
 
 import javax.inject.Inject;
-import javax.ws.rs.NotFoundException;
+import javax.naming.AuthenticationException;
 
 public class PlaylistService {
 
@@ -24,71 +24,71 @@ public class PlaylistService {
     private TrackDAO trackDAO;
 
 
-    public Playlists playlistSearch(String token) throws NotFoundException {
+    public Playlists playlistSearch(String token) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             return playlistDAO.getAllPlaylists(accountToken);
         } else {
-            throw new NotFoundException("No playlists found");
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 
-    public Tracks getTracksFromPlaylist(int id, String token) throws NotFoundException {
+    public Tracks getTracksFromPlaylist(int id, String token) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             return playlistDAO.getTracksFromPlaylist(id);
         } else {
-            throw new NotFoundException();
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 
-    public Playlists deletePlaylist(String token, int playlistId) {
+    public Playlists deletePlaylist(String token, int playlistId) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             playlistDAO.deletePlaylist(playlistId);
             return playlistDAO.getAllPlaylists(accountToken);
         } else {
-            throw new NotFoundException();
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 
-    public Playlists addPlaylist(String token, Playlist playlist) {
+    public Playlists addPlaylist(String token, Playlist playlist) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             playlistDAO.addPlaylist(accountToken, playlist);
             return playlistDAO.getAllPlaylists(accountToken);
         } else {
-            throw new NotFoundException();
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 
-    public Playlists editPlaylist(String token, int playlistId, Playlist playlist) {
+    public Playlists editPlaylist(String token, int playlistId, Playlist playlist) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             playlistDAO.editPlaylist(playlistId, playlist);
             return playlistDAO.getAllPlaylists(accountToken);
         } else {
-            throw new NotFoundException();
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 
-    public Tracks deleteTrackFromPlaylist(String token, int playlistId, int trackId) {
+    public Tracks deleteTrackFromPlaylist(String token, int playlistId, int trackId) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             playlistDAO.deleteTrackFromPlaylist(playlistId, trackId);
             return trackDAO.getTrackList(playlistId);
         } else {
-            throw new NotFoundException();
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 
-    public Tracks addTrackToPlaylist(String token, int playlistId, Track track) {
+    public Tracks addTrackToPlaylist(String token, int playlistId, Track track) throws AuthenticationException {
         AccountToken accountToken = accountTokenDAO.getAccountToken(token);
         if (token.equals(accountToken.getToken())) {
             playlistDAO.addTrackToPlaylist(playlistId, track);
             return playlistDAO.getTracksFromPlaylist(playlistId);
         } else {
-            throw new NotFoundException();
+            throw new AuthenticationException("Account token incorrect");
         }
     }
 }
